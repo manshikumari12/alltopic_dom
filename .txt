@@ -1,0 +1,15 @@
+DOM = documet object model
+
+
+website structure
+
+HTML = Is a skeleton of any website.
+
+CSS =  It is the body of the like colour design and external features.
+
+Javascript = It is the brain of websitesite without javasript we can not any function.
+
+why dom called document object model?
+=> beacuse browser convert our html into object ad the name of the object is document.
+
+
