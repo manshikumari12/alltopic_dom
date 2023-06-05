@@ -5,12 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculator</title>
-    <link rel="stylesheet" href="./index.js">
+    <!-- <link rel="stylesheet" href="./index.js"> -->
     <style>
-        /* *{
-            background-color: antiquewhite;
-        } */
-    
         .cobt{
             border:2px solid rgb(7, 169, 227);
             width:170px;
@@ -20,18 +16,13 @@
             margin-top: 20px;
             background-color: rgb(249, 248, 250);
             padding: 10px;
-         
-        
-
-        }
+          }
   #display{
     
          border-radius: 2px; 
          width: 200px;
          color: rgb(5, 5, 5);
-
-
-    }
+ }
     #cont{
    
             width:230px;
@@ -48,12 +39,12 @@
 
     }
     .numpad{
-        /* border:1px solid red; */
+  
         width: 220px;
 
     }
     .numpad>button{
-        /* border:1px solid red; */
+ 
     border: none;
         box-shadow:black;
             justify-content: center;
@@ -62,23 +53,20 @@
          margin-top: 10px;
             border-radius: 10px;
             font-size: 14px;
-        
-            /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-
-    }
+         }
     .numpad>button:hover{
         color: rgb(10, 10, 10);
         background-color: rgb(226, 226, 250);
     }
     .oprators{
-        /* border:1px solid red; */
+
         width: 220px;
 
     }
     .oprators>button{
-        /* border:1px solid red; */
-        border: none;
-        box-shadow:black;
+ 
+            border: none;
+            box-shadow:black;
             justify-content: center;
             font-weight: 400;
             padding: 14px;
@@ -87,32 +75,28 @@
             border-radius: 10px;
             font-size: 14px;
         
-            /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+            
        
 
     }
  
     #equal{
-        border: none;
-        width: 200px;
+            border: none;
+            width: 200px;
      
-        box-shadow:black;
+            box-shadow:black;
             justify-content: center;
             font-weight: 400;
             padding: 4px;
             margin-top: 10px;
             border-radius: 10px;
             font-size: 25px;
-        
-            /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-          
-
     }
     </style>
   
 </head>
 <body>
-<h1 style="       justify-content: center;">calculator</h1>
+<h1 style="justify-content: center;">calculator</h1>
     <div id="cont">
           
     <div class="cobt">
@@ -148,5 +132,66 @@
 </body>
 </html>
 <script>
-   
+    let display=document.getElementById("display")
+let numpad =document.querySelectorAll(".numpad>button")
+let opr=document.querySelectorAll(".oprators>button")
+
+let eual =document.getElementById("equal")
+
+let isfirstnum=true
+
+
+let firstnum =""
+let secondnum =""
+let oprator=null
+
+
+for(let i=0; i<numpad.length; i++){
+    numpad[i].addEventListener("click",function(event){
+        if(isfirstnum===true){
+            console.log(isfirstnum)
+            firstnum+=event.target.innerText
+            
+        }else{
+            secondnum+=event.target.innerText
+        }
+        display.innerText=display.innerText+event.target.innerText
+
+    })
+}
+
+for(let i=0; i<opr.length; i++){
+opr[i].addEventListener("click", function (event) {
+    isfirstnum = false;
+    oprator = event.target.innerText;
+    console.log(oprator)
+    display.innerText = display.innerText + event.target.innerText;
+} )
+}
+
+
+eual.addEventListener("click", function () {
+  display.innerText = calculate(firstnum , secondnum , oprator);
+  console.log(display)
+});
+
+function calculate(firstnum,secondnum,oprator){
+    switch (oprator) {
+        case "+":
+            
+            return Number(firstnum)+Number(secondnum);
+            case "-":
+            
+            return Number(firstnum)-Number(secondnum);
+            case "*":
+            
+            return Number(firstnum)*Number(secondnum);
+
+            case "/":
+            
+            return Number(firstnum)/Number(secondnum);
+    
+      
+    }
+}
 </script>
