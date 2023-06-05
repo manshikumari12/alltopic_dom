@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phone Clock</title>
+  <style>
+    *{
+        background-color: bisque;
+    }
+    .clock-container {
+        border: 6px solid rgb(5, 221, 210);
+        background-color: black;
+         border-radius: 50%;
+         width: 25%;
+        color: white;
+      display: flex;
+      /* justify-content: center; */
+      margin: auto;
+      align-items: center;
+      height: 300px;
+      font-size: 20px;
+      text-align: center;
+    }
+    #clock{
+        background-color: black;
+        margin: auto;
+    }
+  </style>
+</head>
+<body>
+    <h1>Phone Clock</h1>
+
+  <div class="clock-container">
+  
+    <div id="clock"></div>
+  </div>
+
+  <script>
+
+    function updateClock() {
+      var now = new Date();
+      var date = now.toDateString();
+      var time = now.toLocaleTimeString();
+//   console.log(date)
+//   console.log(time)
+  console.log(typeof(now))
+
+      var clockDisplay = document.getElementById('clock');
+      clockDisplay.innerHTML = date + "<br>" + time;
+    }
+
+    
+    updateClock();
+
+
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
